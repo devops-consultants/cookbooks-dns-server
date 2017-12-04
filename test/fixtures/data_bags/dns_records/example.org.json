@@ -1,0 +1,18 @@
+{
+    "id": "example.org",
+    "soa mname": "example.org.",
+    "soa rname": "hostmaster.example.org.",
+    "soa serial": "100",
+    "default_ttl": "200",
+    "records": [
+      { "type": "NS", "rdata": "ns1.example.org." },
+      { "type": "NS", "rdata": "ns2.example.org." },
+      { "type": "MX", "rdata": "10 mx1.example.org." },
+      { "type": "MX", "rdata": "20 mx1.example.org." },
+      { "owner": "www", "type": "A", "ttl": 20, "rdata": "10.5.0.1" },
+      { "owner": "ns1", "type": "A", "ttl": 20, "rdata": "10.5.1.1" },
+      { "owner": "ns2", "type": "A", "ttl": 20, "rdata": "10.5.2.1" },
+      { "owner": "mx1", "type": "A", "ttl": 20, "rdata": "10.5.1.100" },
+      { "owner": "mx2", "type": "A", "ttl": 20, "rdata": "10.5.2.100" }
+    ]
+  }
