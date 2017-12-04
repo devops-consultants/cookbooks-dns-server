@@ -3,23 +3,37 @@ bind_service 'default' do
 end
   
 bind_config 'default' do
-    ipv6_listen true
+    ipv6_listen false
     options [
-        'recursion no',
-        'allow-query { any; }',
-        'allow-transfer { external-private-interfaces; external-dns; }',
-        'allow-notify { external-private-interfaces; external-dns; localhost; }',
-        'listen-on-v6 { any; }'
+        'check-names slave ignore',
+        'multi-master yes',
+        'provide-ixfr yes',
+        'recursive-clients 10000',
+        'request-ixfr yes',
+        'recursion yes',
+        "forwarders { #{node['named']['forwarders'].join("; ")}; }",
+        'allow-query { local-subnets; localhost; }',
+        'allow-recursion { local-subnets; localhost; }',
+        'allow-query-cache { local-subnets; localhost; }',
+        'allow-transfer { secondary-dns; }',
+        'allow-notify { secondary-dns; localhost; }',
+        'allow-update-forwarding { any; }',
+        'dnssec-validation auto'
     ]
 end
   
-bind_acl 'external-private-interfaces' do
+bind_acl 'local-subnets' do
     entries [
+        '10/8',
     ]
 end
   
-bind_acl 'external-dns' do
+bind_acl 'secondary-dns' do
     entries [
+        '193.47.99.3',
+        '2001:67c:192c::add:a3',
+        '213.133.105.6',
+        '2a01:4f8:d0a:2004::2'
     ]
 end
 

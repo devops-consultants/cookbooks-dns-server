@@ -28,12 +28,12 @@ suites:
     # nodes_path: "test/fixtures/nodes"
     run_list:
       - recipe[dns_server::default]
-    # attributes: {
-    #   "authorization": {
-    #     "sudo": {
-    #       "users": ["kitchen"],
-    #       "passwordless": true
-    #     }
-    #   }
-    # }
+    attributes: {
+      "named": {
+        "forwarders": [
+          "10.112.217.133",
+          "10.112.217.134"
+        ]
+      }
+    }
 
