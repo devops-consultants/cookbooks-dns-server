@@ -4,7 +4,7 @@ maintainer_email 'rob.coward@devops-consultants.co.uk'
 license 'Apache-2.0'
 description 'Installs/Configures dns_server'
 long_description 'Installs/Configures dns_server'
-version '0.0.2'
+version '0.0.3'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are

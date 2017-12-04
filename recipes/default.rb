@@ -17,8 +17,7 @@ bind_config 'default' do
         'allow-query-cache { local-subnets; localhost; }',
         'allow-transfer { secondary-dns; }',
         'allow-notify { secondary-dns; localhost; }',
-        'allow-update-forwarding { any; }',
-        'dnssec-validation auto'
+        'allow-update-forwarding { any; }'
     ]
 end
   
@@ -63,3 +62,5 @@ bind_forward_zone 'consul' do
       '127.0.0.1 port 8600'
     ]
 end
+
+# setsebool -P named_write_master_zones 1
