@@ -12,7 +12,7 @@ bind_config 'default' do
         'request-ixfr yes',
         'recursion yes',
         "forwarders { #{node['named']['forwarders'].join("; ")}; }",
-        'allow-query { local-subnets; localhost; }',
+        'allow-query { any; local-subnets; localhost; }',
         'allow-recursion { local-subnets; localhost; }',
         'allow-query-cache { local-subnets; localhost; }',
         'allow-transfer { secondary-dns; }',
